@@ -81,7 +81,6 @@ Final Answer Returned to UI (Streamlit)
 
 ## 🎯 Routing Logic (CORE OF SYSTEM)
 
-```python
 if score < 0.8:
     return "rag"
 elif 0.8 <= score < 1.5:
@@ -97,42 +96,42 @@ else:
 | Partial knowledge      | Hybrid (RAG + Web) |
 | No relevant data       | Web fallback       |
 
-⚠️ Important Insight (🔥)
-Hybrid retrieval is intentionally rare.
-It is triggered only when internal knowledge provides partial value.
-Otherwise, the system prefers clean web answers to avoid noise.
+🔁 Fallback & Hybrid Strategy
+Scenario	Behavior
+Strong knowledge match	📚 RAG only
+Partial knowledge	🔀 Hybrid (RAG + Web)
+No relevant data	🌐 Web fallback
+⚠️ Important Insight
 
+Hybrid retrieval is intentionally rare.
+
+Triggered only when internal knowledge is partially useful
+Avoids mixing weak + noisy responses
+Ensures cleaner and more reliable outputs
 🧠 Key Learnings
 🔥 1. RAG is NOT just retrieval
 LLM enhances retrieved content
-Generates structured explanations
-
+Generates structured and readable answers
 🔥 2. Data formatting is critical
 Poor structure → poor retrieval
-Clean documents → accurate results
-
+Clean documents → accurate answers
 🔥 3. Routing is the brain of the system
 Prevents hallucination
-Improves reliability
-
+Improves answer reliability
 🔥 4. Hybrid behavior insight
 Does NOT always trigger
 Happens only when:
 RAG is useful BUT incomplete
-
 🔥 5. LLM reasoning vs Real knowledge
-Type	        Source
-RAG Answer	    Internal documents
-Web Answer	    Real-time search
-LLM Reasoning	Generated explanation
-
+Type	Source
+📚 RAG Answer	Internal documents
+🌐 Web Answer	Real-time search
+🧠 LLM Reasoning	Generated explanation
 🖼️ Screenshots
 💬 Chat UI
-  screenshots/chat.png
 
 📂 Project Structure
-
-│ML_ADVISOR/
+ML_ADVISOR/
 │
 ├── data/
 ├── chroma_db/
@@ -151,42 +150,42 @@ LLM Reasoning	Generated explanation
 ├── .env
 ├── requirements.txt
 └── README.md
-
 🚀 How to Run
 1️⃣ Install dependencies
 pip install -r requirements.txt
 2️⃣ Setup environment variables
+
 Create .env file:
+
 OPENAI_API_KEY=your_key
 SERPAPI_API_KEY=your_key
 3️⃣ Ingest documents
 python src/ingest_docs.py
 4️⃣ Run the app
 streamlit run src/streamlit_app.py
-
 💼 Use Cases
 ML Concept Assistant
 Interview Preparation Tool
 Learning Companion
 Domain-specific Q&A system
-
 ⚡ Future Improvements
 RAG evaluation (RAGAS)
 Feedback loop
 Better hybrid tuning
 Multi-agent system
-
 👩‍💻 Developed By
+
 Rachel Purnima J
 
 📌 Note
+
 This project was built as part of hands-on learning in Generative AI systems, focusing on:
 
 RAG architecture
 Hybrid retrieval
 LLM reasoning
 Intelligent routing
-
 🌟 Final Thought
+
 Building GenAI systems is not just about using LLMs —
-it's about combining data, retrieval, reasoning, and decision-making effectively.
+it's about combining data, retrieval, reasoning, and decision-making effectively
