@@ -79,23 +79,13 @@ Final Answer Returned to UI (Streamlit)
 
 ---
 
-## 🎯 Routing Logic (CORE OF SYSTEM)
-
+🎯 Routing Logic (Core Decision Engine)
 if score < 0.8:
     return "rag"
 elif 0.8 <= score < 1.5:
     return "hybrid"
 else:
     return "web"
-
-🔁 Fallback & Hybrid Strategy
-    
-| Scenario               | Behavior           |
-| ---------------------- | ------------------ |
-| Strong knowledge match | RAG only           |
-| Partial knowledge      | Hybrid (RAG + Web) |
-| No relevant data       | Web fallback       |
-
 🔁 Fallback & Hybrid Strategy
 Scenario	Behavior
 Strong knowledge match	📚 RAG only
